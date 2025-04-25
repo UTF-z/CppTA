@@ -1,5 +1,0 @@
-/Users/junming/CppTA/cpp_vscode/example1/build/CMakeFiles/test_analyzeType.dir
-/Users/junming/CppTA/cpp_vscode/example1/build/CMakeFiles/main.dir
-/Users/junming/CppTA/cpp_vscode/example1/build/CMakeFiles/test.dir
-/Users/junming/CppTA/cpp_vscode/example1/build/CMakeFiles/edit_cache.dir
-/Users/junming/CppTA/cpp_vscode/example1/build/CMakeFiles/rebuild_cache.dir

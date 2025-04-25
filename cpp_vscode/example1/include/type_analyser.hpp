@@ -67,6 +67,29 @@ inline bool is_pointer_safe_to_read(void* ptr) {
   }
   return false;
 }
+#elif defined(__APPLE__)
+#include <mach/mach.h>
+
+typedef unsigned long long mach_uintptr_t;
+inline bool is_pointer_safe_to_read(mach_uintptr_t ptr) {
+  mach_port_t task = mach_task_self();
+  vm_address_t address = ptr;
+  vm_size_t size = 0;
+  vm_region_basic_info_data_64_t info;
+  mach_msg_type_number_t info_count = VM_REGION_BASIC_INFO_COUNT_64;
+  memory_object_name_t object;
+
+  vm_address_t original_address = address;
+  kern_return_t kr = vm_region_64(task, &address, &size, VM_REGION_BASIC_INFO_64,
+                                    reinterpret_cast<vm_region_info_t>(&info), &info_count, &object);
+
+  if (kr != KERN_SUCCESS) {
+    return false;
+  }
+
+  // Check if the memory region is readable
+  return ((info.protection & VM_PROT_READ) != 0) && (original_address >= address);
+}
 #else
 #error "Platform not supported!"
 #endif
@@ -161,7 +184,7 @@ void analyzeType(T&& var) {
   std::cout << " 数据类型: " << pointer_type_name << std::endl;
   if constexpr (std::is_pointer_v<CURRENT_TYPE>) {
     std::cout << " 字节数: " << sizeof(var) << std::endl;
-    uintptr_t addr = reinterpret_cast<uintptr_t>(var);
+    mach_uintptr_t addr = reinterpret_cast<mach_uintptr_t>(var);
     std::cout << " 指向的地址 (hex): 0x" << std::hex << addr << std::dec
               << std::endl;
     if constexpr (!is_typeidable<Pointee>::value) {
@@ -188,7 +211,7 @@ void analyzeType(T&& var) {
       }
     } else {
       std::cout << " 字节数: " << sizeof(CURRENT_TYPE) << std::endl;
-      if (!is_pointer_safe_to_read(reinterpret_cast<uintptr_t>(&var))) {
+      if (!is_pointer_safe_to_read(reinterpret_cast<mach_uintptr_t>(&var))) {
         std::cout << " 指针指向的区域不可访问（野指针？）" << std::endl;
       } else {
         std::cout << " 内存中的二进制表示（低地址到高地址）： " << to_bits(var)
