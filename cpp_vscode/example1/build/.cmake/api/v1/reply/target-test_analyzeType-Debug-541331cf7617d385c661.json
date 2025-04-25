@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "test_analyzeType.exe"
-		},
-		{
-			"path" : "test_analyzeType.pdb"
+			"path" : "test_analyzeType"
 		}
 	],
 	"backtrace" : 1,
@@ -29,19 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 13,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 23,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 9,
+				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -52,22 +49,19 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
-				},
-				{
-					"fragment" : "-std=gnu++17"
+					"fragment" : "-g -std=gnu++17 -arch arm64"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/89801/Desktop/CppTA/cpp_vscode/example1/include"
+					"path" : "/Users/junming/CppTA/cpp_vscode/example1/include"
 				},
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "D:/vcpkg/installed/x64-mingw-static/include"
+					"path" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/include"
 				}
 			],
 			"language" : "CXX",
@@ -95,48 +89,40 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\libgtest.a",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/libgtest.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\manual-link\\libgtest_main.a",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/manual-link/libgtest_main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\libgmock.a",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/libgmock.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\manual-link\\libgmock_main.a",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/manual-link/libgmock_main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\libgmock.a",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/libgmock.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "D:\\vcpkg\\installed\\x64-mingw-static\\debug\\lib\\libgtest.a",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"fragment" : "/Users/junming/softwares/vcpkg/packages/gtest_arm64-osx/debug/lib/libgtest.a",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "test_analyzeType",
-	"nameOnDisk" : "test_analyzeType.exe",
+	"nameOnDisk" : "test_analyzeType",
 	"paths" : 
 	{
 		"build" : ".",

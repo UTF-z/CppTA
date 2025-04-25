@@ -2,33 +2,34 @@
 <Site BuildName="(empty)"
 	BuildStamp="20250425-0636-Experimental"
 	Name="(empty)"
-	Generator="ctest-3.21.1"
+	Generator="ctest-4.0.1"
 	CompilerName=""
 	CompilerVersion=""
-	OSName="Windows"
-	Hostname="LAPTOP-V4L9NM1C"
-	OSRelease=" Personal"
-	OSVersion=" (Build 26100)"
-	OSPlatform="AMD64"
+	OSName="macOS"
+	Hostname="JunmingsMacbook.local"
+	OSRelease="15.1"
+	OSVersion="24B2082"
+	OSPlatform="arm64"
 	Is64Bits="1"
-	VendorString="AuthenticAMD"
-	VendorID="Advanced Micro Devices"
-	FamilyID="15"
+	VendorString="Apple"
+	VendorID="Apple"
+	FamilyID="0"
 	ModelID="0"
-	ProcessorCacheSize="64"
-	NumberOfLogicalCPU="16"
-	NumberOfPhysicalCPU="8"
-	TotalVirtualMemory="34668"
-	TotalPhysicalMemory="32620"
-	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3193"
+	ModelName="Apple M4 Pro"
+	ProcessorCacheSize="131072"
+	NumberOfLogicalCPU="12"
+	NumberOfPhysicalCPU="12"
+	TotalVirtualMemory="0"
+	TotalPhysicalMemory="24576"
+	LogicalProcessorsPerPhysical="12"
+	ProcessorClockFrequency="0"
 	>
 	<Testing>
-		<StartDateTime>Apr 25 14:36 ä¸­å½æ åæ¶é´</StartDateTime>
-		<StartTestTime>1745562986</StartTestTime>
+		<StartDateTime>Apr 26 01:09 CST</StartDateTime>
+		<StartTestTime>1745600975</StartTestTime>
 		<TestList/>
-		<EndDateTime>Apr 25 14:36 ä¸­å½æ åæ¶é´</EndDateTime>
-		<EndTestTime>1745562986</EndTestTime>
+		<EndDateTime>Apr 26 01:09 CST</EndDateTime>
+		<EndTestTime>1745600975</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

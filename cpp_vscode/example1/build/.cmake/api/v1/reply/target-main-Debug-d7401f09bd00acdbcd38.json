@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "main.exe"
-		},
-		{
-			"path" : "main.pdb"
+			"path" : "main"
 		}
 	],
 	"backtrace" : 1,
@@ -28,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 9,
+				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -45,17 +42,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
-				},
-				{
-					"fragment" : "-std=gnu++17"
+					"fragment" : "-g -std=gnu++17 -arch arm64"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/89801/Desktop/CppTA/cpp_vscode/example1/include"
+					"path" : "/Users/junming/CppTA/cpp_vscode/example1/include"
 				}
 			],
 			"language" : "CXX",
@@ -81,20 +75,12 @@
 			{
 				"fragment" : "-g",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "main",
-	"nameOnDisk" : "main.exe",
+	"nameOnDisk" : "main",
 	"paths" : 
 	{
 		"build" : ".",

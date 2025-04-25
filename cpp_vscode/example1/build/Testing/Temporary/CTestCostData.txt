@@ -1,0 +1,3 @@
+AnalyzeTypeTests 0 0
+---
+AnalyzeTypeTests
