@@ -14,7 +14,8 @@
 #include <typeinfo>
 #if defined(_WIN32)
 #include <windows.h>
-inline bool is_pointer_safe_to_read(uintptr_t ptr) {
+typedef uintptr_t ptr_addr;
+inline bool is_pointer_safe_to_read(ptr_addr ptr) {
   const void* non_volatile_ptr =
       const_cast<const void*>(reinterpret_cast<void*>(ptr));
   MEMORY_BASIC_INFORMATION mbi;
@@ -32,6 +33,7 @@ inline bool is_pointer_safe_to_read(uintptr_t ptr) {
 #include <sstream>
 #include <string>
 #include <vector>
+typedef uintptr_t ptr_addr;
 struct MemoryRegion {
   uintptr_t start;
   uintptr_t end;
@@ -56,9 +58,9 @@ inline std::vector<MemoryRegion> parse_proc_self_maps() {
   }
   return regions;
 }
-inline bool is_pointer_safe_to_read(void* ptr) {
+inline bool is_pointer_safe_to_read(ptr_addr ptr) {
   static std::vector<MemoryRegion> regions = parse_proc_self_maps();
-  uintptr_t addr = reinterpret_cast<uintptr_t>(ptr);
+  uintptr_t addr = ptr;
 
   for (const auto& region : regions) {
     if (addr >= region.start && addr < region.end && region.readable) {
@@ -70,8 +72,8 @@ inline bool is_pointer_safe_to_read(void* ptr) {
 #elif defined(__APPLE__)
 #include <mach/mach.h>
 
-typedef unsigned long long mach_uintptr_t;
-inline bool is_pointer_safe_to_read(mach_uintptr_t ptr) {
+typedef unsigned long long ptr_addr;
+inline bool is_pointer_safe_to_read(ptr_addr ptr) {
   mach_port_t task = mach_task_self();
   vm_address_t address = ptr;
   vm_size_t size = 0;
@@ -184,7 +186,7 @@ void analyzeType(T&& var) {
   std::cout << " 数据类型: " << pointer_type_name << std::endl;
   if constexpr (std::is_pointer_v<CURRENT_TYPE>) {
     std::cout << " 字节数: " << sizeof(var) << std::endl;
-    mach_uintptr_t addr = reinterpret_cast<mach_uintptr_t>(var);
+    ptr_addr addr = reinterpret_cast<ptr_addr>(var);
     std::cout << " 指向的地址 (hex): 0x" << std::hex << addr << std::dec
               << std::endl;
     if constexpr (!is_typeidable<Pointee>::value) {
@@ -211,7 +213,7 @@ void analyzeType(T&& var) {
       }
     } else {
       std::cout << " 字节数: " << sizeof(CURRENT_TYPE) << std::endl;
-      if (!is_pointer_safe_to_read(reinterpret_cast<mach_uintptr_t>(&var))) {
+      if (!is_pointer_safe_to_read(reinterpret_cast<ptr_addr>(&var))) {
         std::cout << " 指针指向的区域不可访问（野指针？）" << std::endl;
       } else {
         std::cout << " 内存中的二进制表示（低地址到高地址）： " << to_bits(var)
