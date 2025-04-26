@@ -1,3 +1,4 @@
 *.doc
 *.xlsx
+.DS_Store
 **/.vscode/
